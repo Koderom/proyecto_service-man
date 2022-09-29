@@ -13,11 +13,11 @@ return new class extends Migration
      */
     public function up()
     {
-        Schema::create('administradors', function (Blueprint $table) {
+        Schema::create('clientes', function (Blueprint $table) {
             $table->id();
-            $table->string('nacionalidad', 120);
-            $table->string('profecion',120);
-            $table->string('nro_registro_profecional',120);
+            $table->unsignedBigInteger('telefono');
+            $table->string('lugar_trabajo',120);
+            $table->unsignedBigInteger('telefono_trabajo');
             $table->timestamps();
 
             $table->unsignedBigInteger('persona_id');
@@ -32,6 +32,6 @@ return new class extends Migration
      */
     public function down()
     {
-        Schema::dropIfExists('administradors');
+        Schema::dropIfExists('clientes');
     }
 };

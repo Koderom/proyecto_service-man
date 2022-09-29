@@ -13,7 +13,9 @@
 <body>
     <div class="dashboard-grid">
         <header class="menu-superior">
-            hola desde el menu superior
+            <span>hola desde el menu superior</span>
+            
+            <a href={{ route('login') }}>login</a>
         </header>
         <aside class="menu-lateral">
             <div class="menu-lateral__titulo">

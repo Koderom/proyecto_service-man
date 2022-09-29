@@ -6,6 +6,7 @@
     font-size: 18px;
     font-family: 'Roboto Mono', monospace;
 }
+/* Diseño de dashboard */
 .dashboard-grid{
     width: 100vw;
     height: 100vh;
@@ -15,7 +16,7 @@
     grid-template-rows: 4rem auto;
 }
 .menu-superior{
-    z-index: 1;
+    z-index: 2;
     grid-column: 2 / 2;
     grid-row: 1 / 1;
     background-color: rgb(255, 255, 255);
@@ -61,5 +62,31 @@
     transition: 0.2s;
 }
 .contenedor-principal{
-    background: rgb(255, 255, 255);
+    background: rgba(185, 184, 184, 0.17);
+}
+/* Diseño de tablas */
+.tabla-datos{
+    margin: 3rem;
+    border-collapse: collapse;
+    box-shadow: 0 0 10px rgba(0, 0, 0, 0.313);
+    border-radius: 0.3rem;
+    background: white;
+}
+.tabla-datos__fila-encabezado{
+    text-align: left;
+}
+.tabla-datos__casilla-titulo{
+    font-size: 14px;
+    padding: 0.7rem;
+    color: #215170;
+}
+.tabla-datos__fila-datos{
+    border-top: 3px solid rgba(72, 72, 72, 0.081);
+}
+.tabla-datos__fila-datos:hover{
+    background: rgba(0, 0, 0, 0.076);
+}
+.tabla-datos__casilla-datos{
+    font-size: 14px;
+    padding: 0.7rem;
 }

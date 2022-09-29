@@ -19,7 +19,6 @@
 				<input type="password" placeholder="password" name="password"><br>
 				<input type="button" value="Login">
                 <a href={{ route('home') }}>Dashboard</a>
-                <a href={{ route('login') }}>login</a>
 		</div>
 </body>
 </html>
