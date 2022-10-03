@@ -21,13 +21,19 @@ return new class extends Migration
             $table->timestamps();
 
             $table->unsignedBigInteger('orden_trabajo_id');
-            $table->foreign('orden_trabajo_id')->references('id')->on('orden_trabajos');
+            $table->foreign('orden_trabajo_id')->references('id')->on('orden_trabajos')
+            ->onDelete('cascade')
+            ->onUpdate('cascade');
 
             $table->unsignedBigInteger('trabajador_id');
-            $table->foreign('trabajador_id')->references('id')->on('trabajadors');
+            $table->foreign('trabajador_id')->references('id')->on('trabajadors')
+            ->onDelete('cascade')
+            ->onUpdate('cascade');
 
             $table->unsignedBigInteger('cliente_id');
-            $table->foreign('cliente_id')->references('id')->on('clientes');
+            $table->foreign('cliente_id')->references('id')->on('clientes')
+            ->onDelete('cascade')
+            ->onUpdate('cascade');
         });
     }
 

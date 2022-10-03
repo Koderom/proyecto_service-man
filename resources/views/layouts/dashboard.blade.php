@@ -13,23 +13,85 @@
 <body>
     <div class="dashboard-grid">
         <header class="menu-superior">
-            <span>hola desde el menu superior</span>
+            @auth
+            <span>{{Auth::user()->persona->nombre}}</span>
+            @endauth
             
-            <a href={{ route('login') }}>login</a>
+            <form style="display: inline" action="{{route('logout')}}" method="POST">
+                @csrf
+                <button>salir</button>
+            </form>
         </header>
         <aside class="menu-lateral">
             <div class="menu-lateral__titulo">
-                <span>Service-Man</span>
+                <a href="{{ route('home') }}" >
+                    Service-Man
+                </a>
             </div>
             <div class="menu-lateral__opciones">
-                <span class="menu-lateral__opcion-item">Opcion 1</span>
-                <span class="menu-lateral__opcion-item">Opcion 1</span>
-                <span class="menu-lateral__opcion-item">Opcion 1</span>
-                <span class="menu-lateral__opcion-item">Opcion 1</span>
-                <span class="menu-lateral__opcion-item">Opcion 1</span>
-                <span class="menu-lateral__opcion-item">Opcion 1</span>
-                <span class="menu-lateral__opcion-item">Opcion 1</span>
-                <span class="menu-lateral__opcion-item">Opcion 1</span>
+                @can('administrador.index')
+                <div class="menu-lateral__opcion-item" >
+                    <a href="{{ route('administrador.index') }}" >
+                        Administradores
+                    </a>
+                </div>
+                @endcan
+                @can('cliente.index')
+                <div class="menu-lateral__opcion-item" >
+                    <a href="{{ route('cliente.index') }} ">
+                        Clientes
+                    </a>
+                </div>    
+                @endcan
+                
+                @can('trabajador.index')
+                <div class="menu-lateral__opcion-item" >
+                    <a href="{{ route('trabajador.index') }}" >
+                        Trabajadores
+                    </a>
+                </div>
+                @endcan
+                
+                @can('turno.index')
+                <div class="menu-lateral__opcion-item" >
+                    <a href="{{ route('turno.index') }}" >
+                        Turnos
+                    </a>
+                </div>
+                @endcan
+                
+                @can('contrato.index')
+                <div class="menu-lateral__opcion-item" >
+                    <a href="{{ route('contrato.index') }}" >
+                        Contratos
+                    </a>
+                </div>
+                @endcan
+                
+                @can('servicio.index')
+                <div class="menu-lateral__opcion-item" >
+                    <a href="{{ route('servicio.index') }}" >
+                        Servicios
+                    </a>
+                </div>
+                @endcan
+                
+                @can('solicitud.index')
+                <div class="menu-lateral__opcion-item" >
+                    <a href="{{route('solicitud.index')}}" >
+                        Solicitud de servicios
+                    </a>
+                </div>
+                @endcan
+                
+                @can('orden.index')
+                <div class="menu-lateral__opcion-item" >
+                    <a href="{{route('orden.index')}}" >
+                        Orden de trabajo
+                    </a>
+                </div>
+                @endcan
+                
             </div>
         </aside>
         <main class="contenedor-principal">

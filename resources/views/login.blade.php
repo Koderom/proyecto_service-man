@@ -15,10 +15,18 @@
 		</div>
 		<br>
 		<div class="login">
-				<input type="text" placeholder="username" name="user"><br>
+			<form method="POST">
+				@csrf
+				<input type="text" placeholder="user email" name="email" value="{{old('email')}}"><br>
+				@error('email')
+					<br><small>{{$message}}</small>
+				@enderror
 				<input type="password" placeholder="password" name="password"><br>
-				<input type="button" value="Login">
-                <a href={{ route('home') }}>Dashboard</a>
+				@error('email')
+					<br><small>{{$message}}</small>
+				@enderror
+				<button type="submit">Login</button>
+			</form>
 		</div>
 </body>
 </html>

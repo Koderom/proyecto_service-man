@@ -12,9 +12,14 @@ class TurnoController extends Controller
      *
      * @return \Illuminate\Http\Response
      */
+    public function __construct()
+    {
+        $this->middleware('auth');
+    }
     public function index()
     {
-        //
+        $Turnos = Turno::all();
+        return view('Turno.index',['Turnos'=>$Turnos]);
     }
 
     /**
@@ -24,7 +29,7 @@ class TurnoController extends Controller
      */
     public function create()
     {
-        //
+        return view('Turno.create');
     }
 
     /**
@@ -35,7 +40,17 @@ class TurnoController extends Controller
      */
     public function store(Request $request)
     {
-        //
+        $request->validate([
+            'descripcion'=>'required',
+            'hora_inicio'=>'required',
+            'hora_fin'=>'required',
+        ]);
+        $turno = new Turno();
+        $turno->descripcion = $request->input('descripcion');
+        $turno->hora_inicio = $request->input('hora_inicio');
+        $turno->hora_fin = $request->input('hora_fin');
+        $turno->save();
+        return redirect()->route('turno.index');
     }
 
     /**
@@ -57,7 +72,8 @@ class TurnoController extends Controller
      */
     public function edit(Turno $turno)
     {
-        //
+        return view('Turno.edit',['turno'=>$turno]);
+        //return $turno;
     }
 
     /**
@@ -69,7 +85,17 @@ class TurnoController extends Controller
      */
     public function update(Request $request, Turno $turno)
     {
-        //
+        $request->validate([
+            'descripcion'=>'required',
+            'hora_inicio'=>'required',
+            'hora_fin'=>'required',
+        ]);
+        $turno = Turno::find($turno->id);
+        $turno->descripcion = $request->input('descripcion');
+        $turno->hora_inicio = $request->input('hora_inicio');
+        $turno->hora_fin = $request->input('hora_fin');
+        $turno->save();
+        return redirect()->route('turno.index');
     }
 
     /**
@@ -80,6 +106,7 @@ class TurnoController extends Controller
      */
     public function destroy(Turno $turno)
     {
-        //
+        $turno->delete();
+        return redirect()->route('turno.index');
     }
 }

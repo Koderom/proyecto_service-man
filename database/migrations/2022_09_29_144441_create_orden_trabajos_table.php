@@ -16,15 +16,22 @@ return new class extends Migration
         Schema::create('orden_trabajos', function (Blueprint $table) {
             $table->id();
             $table->unsignedBigInteger('cod_orden_trabajo');
-            $table->dateTime('fecha_hora_marcado');
+            $table->dateTime('fecha_hora_marcado')->nullable();
+            $table->date('dia_programado');
+            $table->time('hora_inicio');
+            $table->time('hora_fin');
             $table->string('estado',50);
             $table->timestamps();
 
-            $table->unsignedBigInteger('trabajador_id');
-            $table->foreign('trabajador_id')->references('id')->on('trabajadors');
+            $table->unsignedBigInteger('trabajador_id')->nullable();
+            $table->foreign('trabajador_id')->references('id')->on('trabajadors')
+            ->onDelete('cascade')
+            ->onUpdate('cascade');
 
             $table->unsignedBigInteger('solicitud_servicio_id');
-            $table->foreign('solicitud_servicio_id')->references('id')->on('solicitud_servicios');
+            $table->foreign('solicitud_servicio_id')->references('id')->on('solicitud_servicios')
+            ->onDelete('cascade')
+            ->onUpdate('cascade');
         });
     }
 

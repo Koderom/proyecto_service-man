@@ -1,4 +1,4 @@
-<?php
+             <?php
 
 use Illuminate\Database\Migrations\Migration;
 use Illuminate\Database\Schema\Blueprint;
@@ -23,10 +23,10 @@ return new class extends Migration
             $table->string('email',200);
             $table->char('sexo',1);
             $table->date('fecha_nacimiento');
+            $table->char('tipo',1);
             $table->timestamps();
 
-            $table->unsignedBigInteger('user_id');
-            $table->foreign('user_id')->references('id')->on('users');
+            
         });
     }
 

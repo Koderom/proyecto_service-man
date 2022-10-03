@@ -18,18 +18,24 @@ return new class extends Migration
             $table->id();
             $table->unsignedBigInteger('cod_solicitud_servicio');
             $table->text('motivo');
-            $table->boolean('confirmado');
+            $table->char('estado',1);
             $table->dateTime('fecha_solicitud');
             $table->timestamps();
 
             $table->unsignedBigInteger('servicio_id');
-            $table->foreign('servicio_id')->references('id')->on('servicios');
+            $table->foreign('servicio_id')->references('id')->on('servicios')
+            ->onDelete('cascade')
+            ->onUpdate('cascade');
 
             $table->unsignedBigInteger('establecimiento_id');
-            $table->foreign('establecimiento_id')->references('id')->on('establecimientos');
+            $table->foreign('establecimiento_id')->references('id')->on('establecimientos')
+            ->onDelete('cascade')
+            ->onUpdate('cascade');
 
             $table->unsignedBigInteger('cliente_id');
-            $table->foreign('cliente_id')->references('id')->on('clientes');
+            $table->foreign('cliente_id')->references('id')->on('clientes')
+            ->onDelete('cascade')
+            ->onUpdate('cascade');
         });
     }
 

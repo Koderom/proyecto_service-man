@@ -25,13 +25,19 @@ return new class extends Migration
             $table->timestamps();
 
             $table->unsignedBigInteger('administrador_id');
-            $table->foreign('administrador_id')->references('id')->on('administradors');
+            $table->foreign('administrador_id')->references('id')->on('administradors')
+            ->onDelete('cascade')
+            ->onUpdate('cascade');
 
             $table->unsignedBigInteger('cliente_id');
-            $table->foreign('cliente_id')->references('id')->on('clientes');
+            $table->foreign('cliente_id')->references('id')->on('clientes')
+            ->onDelete('cascade')
+            ->onUpdate('cascade');
 
             $table->unsignedBigInteger('establecimiento_id');
-            $table->foreign('establecimiento_id')->references('id')->on('establecimientos');
+            $table->foreign('establecimiento_id')->references('id')->on('establecimientos')
+            ->onDelete('cascade')
+            ->onUpdate('cascade');
         });
     }
 

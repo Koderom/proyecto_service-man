@@ -19,6 +19,8 @@ return new class extends Migration
             $table->string('provincia',100);
             $table->string('zona',120);
             $table->string('direccion_exacta',150);
+            $table->decimal('latitud',19,16);
+            $table->decimal('longitud',19,16);
             $table->timestamps();
         });
     }

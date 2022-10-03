@@ -20,10 +20,11 @@
     grid-column: 2 / 2;
     grid-row: 1 / 1;
     background-color: rgb(255, 255, 255);
-    box-shadow: 0px 10px 50px 3px rgba(0, 0, 0, 0.187);
+    box-shadow: 0px 2px 20px 3px rgba(0, 0, 0, 0.187);
     border-bottom: 1px solid rgba(0, 0, 0, 0.165);
 
     display: flex;
+    gap: 2rem;
     align-items: center;
     justify-content: end;
 
@@ -47,6 +48,10 @@
     align-items: center;
     font-weight: 800;
 }
+.menu-lateral__titulo a{
+    color: white;
+    text-decoration: none;
+}
 .menu-lateral__opciones{
     width: 100%;
     height: 100%;
@@ -54,19 +59,45 @@
     flex-direction: column;
 }
 .menu-lateral__opcion-item{
+    font-size: 0.8rem;
+    color: rgba(255, 255, 255, 0.838);
+    text-align: left;
     height: 2rem;
     padding: 0.7rem 1rem;
+    display: flex;
+    align-items: center;
+    
 }
 .menu-lateral__opcion-item:hover{
-    font-size: 1.1rem;
-    transition: 0.2s;
+    color: white;
+    padding-left: 0.5rem;
+    background: rgba(0, 0, 0, 0.129);
+    transition:all 0.5s;
+}
+.menu-lateral__opcion-item:not(:hover){
+    transition: all 0.7s;
+}
+.menu-lateral__opcion-item a{
+    font-size: inherit;
+    color: inherit;
+    text-decoration: none;
 }
 .contenedor-principal{
-    background: rgba(185, 184, 184, 0.17);
+    display: flex;
+    padding: 2rem;
+    flex-direction: column;
+    overflow: auto;
+}
+.encabezado-principal{
+    margin-bottom: 2rem ;
+    border-bottom: 2px solid rgba(72, 72, 72, 0.817);
+    display: flex;
+    justify-content: space-between;
 }
 /* Diseño de tablas */
 .tabla-datos{
-    margin: 3rem;
+    width: 100%;
+    margin-bottom: 1rem;
     border-collapse: collapse;
     box-shadow: 0 0 10px rgba(0, 0, 0, 0.313);
     border-radius: 0.3rem;
@@ -89,4 +120,62 @@
 .tabla-datos__casilla-datos{
     font-size: 14px;
     padding: 0.7rem;
+}
+.tabla-datos__casilla-datos.--opciones{
+    display: flex;
+    gap: 0.5rem;
+}
+.tabla-datos__casilla-datos.--opciones form{
+    width: fit-content;
+}
+/*Diseño formulario*/
+.contenedor-formulario{
+    box-sizing: border-box;
+    margin-top: 1rem;
+    padding: 1rem;
+    width: 100%;
+    border-radius: 0.3rem;
+    box-shadow: 0 0 10px 2px rgba(0, 0, 0, 0.273);
+    background: white;
+}
+.formulario-datos{
+    display: flex;
+    flex-direction: column;
+}
+.formulario-datos__seccion{
+    margin-top: 1rem;
+    padding: 1rem;
+
+    border: 1px solid rgba(0, 0, 0, 0.275);
+    border-radius: 0.3rem;
+}
+.formulario-datos__seccion-titulo{
+    display: block;
+    width: max-content;
+    background: white;
+    position: relative;
+    top: -1.8rem;
+
+}
+.formulario-datos__input-list{
+    display: flex;    
+    flex-wrap: wrap;
+    gap: 1rem;
+}
+.formulario-datos__input {
+}
+.formulario-datos__input input{
+    border: 1px solid rgba(0, 0, 0, 0.192);
+    padding: 0.2rem 0.3rem;
+    border-radius: 0.2rem;
+}
+.formulario-datos__opciones{
+    display: flex;
+    justify-content: end;
+    gap: 1rem;
+    margin-top: 1rem;
+}
+.formulario-datos__mensaje-error{
+    font-size: 0.7rem;
+    color: red;
 }

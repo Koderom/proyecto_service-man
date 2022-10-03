@@ -8,7 +8,7 @@
         </style>
     </head>
     <body>
-        <a href={{ route('home') }}>Dashboard</a>
-        <a href={{ route('login') }}>login</a>
+        <a href="{{ route('home') }}">Dashboard</a>
+        <a href="{{ route('login') }}">login</a>
     </body>
 </html>
